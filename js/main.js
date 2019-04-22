@@ -1,21 +1,21 @@
 'use strict';
 
-function main(){
+const main = () => {
 
-  var gameAudio = new Audio('./sounds/game.mp3');
-  var gameOverAudio = new Audio('./sounds/gameover.mp3');
+  const gameAudio = new Audio('./sounds/game.mp3');
+  const gameOverAudio = new Audio('./sounds/gameover.mp3');
   
   //===========CREATE SCREENS============================================================
 
   const mainElement = document.querySelector('main');
 
-  function buildDom(html){
+  const buildDom = (html) =>{
     mainElement.innerHTML = html;
     return mainElement;
   }
    //===========SPLASH SCREEN
 
-  function buildSplashScreen(){
+  const buildSplashScreen = () =>{
     buildDom(`
 
     <section class="game-container">
@@ -36,7 +36,7 @@ function main(){
 
   //===========GAME SCREEN
 
-  function buildGameScreen(){
+  const buildGameScreen = () =>{
     gameAudio.play();
     gameAudio.addEventListener('ended', function() {
       this.currentTime = 0;
@@ -67,7 +67,7 @@ function main(){
 
   }
   //===========GAMEOVER SCREEN
-  function buildGameOverScreen(){
+  const buildGameOverScreen = () =>{
 
     gameAudio.pause();
     gameAudio.currentTime = 0;
